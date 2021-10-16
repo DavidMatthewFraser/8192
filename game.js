@@ -174,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < cells.length; i++) {
             if (cells[i].innerHTML == 8192) {
                 resultDisplay.innerHTML = 'You WIN'
+                updateHistory();
                 document.removeEventListener('keydown', moveSomething)
                 //setTimeout(() => clear(), 3000)
             }
@@ -190,9 +191,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (zeros === 0) {
             resultDisplay.innerHTML = 'You LOSE'
+             updateHistory();
             document.removeEventListener('keydown', moveSomething)
             //setTimeout(() => clear(), 3000)
         }
+    }
+
+    //add to game history
+    function updateHistory(){
+        var node = document.createElement('li');
+        node.appendChild(document.createTextNode(score));
+
+        document.querySelector('#history').appendChild(node);    
     }
 
     //add colours

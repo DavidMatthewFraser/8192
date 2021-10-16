@@ -1,9 +1,86 @@
+/********* Set the color variables************/
+:root {
+    --primary-color: #86340A;
+    --secondary-color: #C36839;
+    --primary-font-color:black; 
+    --secondary-font:#E8D0B3;
+    --bg-color: #7EB5A6;
+}
+/*********************************************/
+
+
+/*********** Format for entire page ***********/
+
+* {
+    margin:0;
+}
+
+body{
+        background-color: var(--bg-color);
+}
+/*********************************************/
+
+/********* Format Score ***********/
+aside {
+    float:right;
+    margin:15px;
+    background-color:var(--primary-color);
+    color:var(--secondary-font);
+    padding:15px;
+    border-radius:15px;
+    width:20%;
+}
+
+#history {
+    list-style-type:square;
+    margin:15px;
+}
+/***********************************************/
+
+
+/*********** Format the top nav bar **********/
+#nav_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--primary-color);
+}
+
+.nav_item {
+  float: left;
+}
+
+.nav_item a {
+  display: block;
+  color: var(--secondary-font);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: var(--primary-color);
+
+}
+
+li a:hover {
+  background-color: var(--secondary-color);
+  color:var(--primary-color);
+}
+
+.material-icons{
+    margin:15px;
+    color:var(--secondary-font);
+}
+/**********************************************/
+
+
+/*********** Format the game board ***********/
 .grid {
     display: flex;
     flex-wrap: wrap;
     width: 410px;
     height: 410px;
     background-color: black;
+    margin:15px;
     
 }
 
@@ -16,3 +93,30 @@
     font-weight: bold;
     border: 1px solid black;
 }
+/*********************************************/
+
+
+h1, h4{
+        background-color:var(--secondary-color);
+        padding:15px;
+        text-align:center;
+}
+
+h2{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+header, footer{
+    margin:15px;
+    border-style:double
+}
+
+a{
+    background-color:transparent;
+}
+
+article{
+    margin:15px;
+}
+

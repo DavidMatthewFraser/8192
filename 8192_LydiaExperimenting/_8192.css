@@ -57,3 +57,18 @@ li a:hover {
   background-color: var(--secondary-color);
   color:var(--primary-color);
 }
+
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  margin-left:15px;
+  width:400px;
+  height:400px;
+  background-color: var(--secondary-color);
+}
+
+.grid div{
+  width:100px;
+  height: 100px;
+  background-color:var(--heading-color);
+}
