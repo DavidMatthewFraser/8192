@@ -1,10 +1,18 @@
 /********* Set the color variables************/
 :root {
+  /* potential color theme 1 */
     --primary-color: #86340A;
     --secondary-color: #C36839;
     --primary-font-color:black; 
     --secondary-font:#E8D0B3;
     --bg-color: #7EB5A6;
+
+     /* potential color theme 2 */
+/*     --primary-color: #A06EE1;
+    --secondary-color: #CBBCF6;
+    --primary-font-color:black; 
+    --secondary-font:#CEF9E2;
+    --bg-color: #421B9B; */
 }
 /*********************************************/
 
@@ -93,9 +101,19 @@ li a:hover {
 
 
 /********** Format How to Play ***************/
+button{
+  background-color: var(--primary-color);
+  color: var(--secondary-font);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 button, #how_to{
   margin-top:15px;
-   margin-bottom:15px;
+  margin-bottom:15px;
 }
 
 #how_to{
