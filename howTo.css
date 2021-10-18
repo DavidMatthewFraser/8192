@@ -1,9 +1,0 @@
-/* format animation image */
-
-.animation{
-  display: grid;
-  grid-template-columns: auto;
-  float:right;
-  margin:15px;
-  text-align:center;
-}

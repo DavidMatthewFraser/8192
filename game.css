@@ -10,20 +10,19 @@
 
 
 /*********** Format for entire page ***********/
-
 * {
     margin:0;
 }
 
 body{
-        background-color: var(--bg-color);
+     background-color: var(--bg-color);
+     margin:15px;
 }
 /*********************************************/
 
 /********* Format Score ***********/
 aside {
     float:right;
-    margin:15px;
     background-color:var(--primary-color);
     color:var(--secondary-font);
     padding:15px;
@@ -33,7 +32,6 @@ aside {
 
 #history {
     list-style-type:square;
-    margin:15px;
 }
 /***********************************************/
 
@@ -79,9 +77,7 @@ li a:hover {
     flex-wrap: wrap;
     width: 410px;
     height: 410px;
-    background-color: black;
-    margin:15px;
-    
+    background-color: black;    
 }
 
 .grid div {
@@ -96,28 +92,41 @@ li a:hover {
 /*********************************************/
 
 
+/********** Format How to Play ***************/
+button{
+  margin-top:15px;
+}
+
+#how_to{
+  /* start by having instructions hidden */
+  display:none; 
+  margin:15px;
+}
+
+/* format animation image */
+.animation{
+  display: grid;
+  grid-template-columns: auto;
+  float:right;
+  text-align:center;
+}
+/*********************************************/
+
+
 h1, h4{
         background-color:var(--secondary-color);
         padding:15px;
         text-align:center;
 }
 
-h2{
-    margin-top:15px;
-    margin-bottom:15px;
-}
 
 header, footer{
-    margin:15px;
+    margin-top:15px;
+    margin-bottom:15px;   
     border-style:double
 }
 
 a{
     background-color:transparent;
 }
-
-article{
-    margin:15px;
-}
-
 
