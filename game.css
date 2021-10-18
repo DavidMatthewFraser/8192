@@ -93,14 +93,18 @@ li a:hover {
 
 
 /********** Format How to Play ***************/
-button{
+button, #how_to{
   margin-top:15px;
+   margin-bottom:15px;
 }
 
 #how_to{
   /* start by having instructions hidden */
   display:none; 
-  margin:15px;
+  color:var(--secondary-font);
+  background-color:var(--primary-color);
+  padding:15px;
+  border-radius:15px;
 }
 
 /* format animation image */
