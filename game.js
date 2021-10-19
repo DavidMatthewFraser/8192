@@ -1,6 +1,5 @@
 var howToAnimId = 0
 
-document.addEventListener('DOMContentLoaded', () => {
 
     /************************************************
     Start of game js
@@ -109,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function swipeDown() {
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 5; i++) {
             let first = cells[i].innerHTML
             let second = cells[i + width].innerHTML
             let third = cells[i + (width * 2)].innerHTML
@@ -187,12 +186,88 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkForWin() {
         for (let i = 0; i < cells.length; i++) {
             if (cells[i].innerHTML == 8192) {
+		alert('WIN')
                 resultDisplay.innerHTML = 'You WIN'
                 updateHistory();
                 document.removeEventListener('keydown', moveSomething)
                 //setTimeout(() => clear(), 3000)
             }
         }
+    }
+
+    function checkLeft() {
+	for (let i = 0; i < 25; i++) {
+	    if (i % 5 === 0) {
+		let first = cells[i].innerHTML
+		let second = cells[i + 1].innerHTML
+		let third = cells[i + 2].innerHTML
+		let fourth = cells[i + 3].innerHTML
+		let fifth = cells[i + 4].innerHTML
+		let row = [parseInt(first), parseInt(second), parseInt(third), parseInt(fourth), parseInt(fifth)]
+		if (moveAvail(row)) {
+			return true;
+		} else if (i == 20) {
+			return false;
+		}
+	    }
+	}
+	console.log('this should never be reached');
+	return false;
+    }
+
+    function checkRight() {
+        for (let i = 0; i < 25; i++) {
+            if (i % 5 === 0) {
+                let first = cells[i].innerHTML
+                let second = cells[i + 1].innerHTML
+                let third = cells[i + 2].innerHTML
+                let fourth = cells[i + 3].innerHTML
+                let fifth = cells[i + 4].innerHTML
+                let row = [parseInt(first), parseInt(second), parseInt(third), parseInt(fourth),parseInt(fifth)]
+		if (moveAvail(row)) {
+			return true;
+		} else if (i == 20) {
+			return false;
+		}
+            }
+        }
+	console.log('this should never be reached');
+    }
+
+    function checkUp() {
+        for (let i = 0; i < 5; i++) {
+            let first = cells[i].innerHTML
+            let second = cells[i + width].innerHTML
+            let third = cells[i + (width * 2)].innerHTML
+            let fourth = cells[i + (width * 3)].innerHTML
+            let fifth = cells[i + (width * 4)].innerHTML
+            let column = [parseInt(first), parseInt(second), parseInt(third), parseInt(fourth), parseInt(fifth)]
+	     if (moveAvail(column)) {
+		return true;
+	     } else if (i == 4) {
+		return false;
+             }           
+        }
+	console.log('this should never be reached');
+	return false;
+    }
+
+    function checkDown() {
+        for (let i = 0; i < 5; i++) {
+            let first = cells[i].innerHTML
+            let second = cells[i + width].innerHTML
+            let third = cells[i + (width * 2)].innerHTML
+            let fourth = cells[i + (width * 3)].innerHTML
+            let fifth = cells[i + (width * 4)].innerHTML
+            let column = [parseInt(first), parseInt(second), parseInt(third), parseInt(fourth), parseInt(fifth)]
+	    if (moveAvail(column)) {
+		return true;
+	     } else if (i == 4) {
+		return false;
+             }
+        }
+	console.log('this should never be reached');
+	return false;
     }
 
     //check if there are no zeros on the board to lose
@@ -204,9 +279,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         if (zeros === 0) {
+	    if (checkUp()) { return false }
+	    if (checkDown()) { return false }
+	    if (checkLeft()) { return false }
+	    if (checkRight()) { return false }
             resultDisplay.innerHTML = 'You LOSE'
              updateHistory();
             document.removeEventListener('keydown', moveSomething)
+	    return true;
             //setTimeout(() => clear(), 3000)
         }
     }
@@ -246,7 +326,6 @@ document.addEventListener('DOMContentLoaded', () => {
         *******************************************/
 
 
-    })
 
 
         // toggle showing the user how to play the game
@@ -289,6 +368,14 @@ document.addEventListener('DOMContentLoaded', () => {
                document.getElementById('animation_explanation').innerHTML="Start"
            } 
         }
+	
+	function moveAvail(arr) {
+		for(var i=0; i<arr.length-1; i++) {
+			if(arr[i] == arr[i+1])
+				return true
+		}	
+		return false
+	}
 
 
 
