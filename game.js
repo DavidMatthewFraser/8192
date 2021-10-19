@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function swipeDown() {
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 5; i++) {
             let first = cells[i].innerHTML
             let second = cells[i + width].innerHTML
             let third = cells[i + (width * 2)].innerHTML
@@ -182,6 +182,91 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function checkMoveLeft(){
+        for (let i = 0; i < 25; i++) {
+            if (i % 5 === 0) {
+                let first = cells[i].innerHTML
+                let second = cells[i + 1].innerHTML
+                let third = cells[i + 2].innerHTML
+                let fourth = cells[i + 3].innerHTML
+                let fifth = cells[i + 4].innerHTML
+                let row = [parseInt(first), parseInt(second), parseInt(third), parseInt(fourth), parseInt(fifth)]
+
+                let filteredRow = row.filter(num => num)
+                let missingZeros = 5 - filteredRow.length
+                if(missingZeros !==0){
+                    return true
+                }else if(i == 24){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
+
+    function checkMoveRight() {
+        for (let i = 0; i < 25; i++) {
+            if (i % 5 === 0) {
+                let first = cells[i].innerHTML
+                let second = cells[i + 1].innerHTML
+                let third = cells[i + 2].innerHTML
+                let fourth = cells[i + 3].innerHTML
+                let fifth = cells[i + 4].innerHTML
+                let row = [parseInt(first), parseInt(second), parseInt(third), parseInt(fourth),parseInt(fifth)]
+
+                let filteredRow = row.filter(num => num)
+                let missingZeros = 5 - filteredRow.length
+                if(missingZeros !==0){
+                    return true
+                }else if(i == 24){
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
+
+    function checkMoveUp() {
+        for (let i = 0; i < 5; i++) {
+            let first = cells[i].innerHTML
+            let second = cells[i + width].innerHTML
+            let third = cells[i + (width * 2)].innerHTML
+            let fourth = cells[i + (width * 3)].innerHTML
+            let fifth = cells[i + (width * 4)].innerHTML
+            let column = [parseInt(first), parseInt(second), parseInt(third), parseInt(fourth), parseInt(fifth)]
+
+            let filteredColumn = column.filter(num => num)
+            let missingZeros = 5 - filteredColumn.length
+            if(missingZeros !==0){
+                return true
+            }else if(i == 4){
+                return false
+            }
+        }
+        return true
+    }
+
+    function checkMoveDown() {
+        for (let i = 0; i < 5; i++) {
+            let first = cells[i].innerHTML
+            let second = cells[i + width].innerHTML
+            let third = cells[i + (width * 2)].innerHTML
+            let fourth = cells[i + (width * 3)].innerHTML
+            let fifth = cells[i + (width * 4)].innerHTML
+            let column = [parseInt(first), parseInt(second), parseInt(third), parseInt(fourth), parseInt(fifth)]
+
+            let filteredColumn = column.filter(num => num)
+            let missingZeros = 5 - filteredColumn.length
+            if(missingZeros !==0){
+                return true
+            }else if(i == 4){
+                return false
+            }
+        }
+        return true
+    }
 
     //check for the number 8192 in the squares to win
     function checkForWin() {
@@ -204,10 +289,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         if (zeros === 0) {
-            resultDisplay.innerHTML = 'You LOSE'
-             updateHistory();
-            document.removeEventListener('keydown', moveSomething)
-            //setTimeout(() => clear(), 3000)
+            if(!(checkMoveDown && checkMoveUp && checkMoveLeft && checkMoveRight)){
+                resultDisplay.innerHTML = 'You LOSE'
+                updateHistory();
+                document.removeEventListener('keydown', moveSomething)
+                alert("You lost, do you want to play again?")
+                //setTimeout(() => clear(), 3000)
+            }
         }
     }
 
