@@ -83,8 +83,8 @@ li a:hover {
 .grid {
     display: flex;
     flex-wrap: wrap;
-    width: 410px;
-    height: 410px;
+    width: 510px;
+    height: 510px;
     background-color: black;    
 }
 
