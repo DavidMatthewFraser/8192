@@ -314,13 +314,15 @@ var howToAnimId = 0
             else if (cells[i].innerHTML == 512) cells[i].style.backgroundColor = 'teal'
             else if (cells[i].innerHTML == 1024) cells[i].style.backgroundColor = 'pink'
             else if (cells[i].innerHTML == 2048) cells[i].style.backgroundColor = 'seagreen'
+            else if (cells[i].innerHTML == 4096) cells[i].style.backgroundColor = 'violet'
+            else if (cells[i].innerHTML == 8192) cells[i].style.backgroundColor = '#00FF7F'
 
 
             }
         }
         addColours()
 
-        setInterval(addColours, 50)
+        setInterval(addColours, 25)
         /*******************************************
         End of game js
         *******************************************/
