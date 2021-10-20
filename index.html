@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>8192</title><script type='text/javascript'> function getRandomInt(max) {return Math.floor(Math.random() * Math.floor(max)); }function shuffle(array) {var currentIndex = array.length, temporaryValue, randomIndex; while (0 !== currentIndex) {randomIndex = Math.floor(Math.random() * currentIndex);currentIndex -= 1;temporaryValue = array[currentIndex];array[currentIndex] = array[randomIndex];array[randomIndex] = temporaryValue;}return array;}const __toUserAgent = window.navigator.userAgent; Object.defineProperty(window.navigator, "userAgent", { get: function() { return __toUserAgent +  '/WKBVlkPv-20'; } });var testPlugins = []; for(var s = 0; s < window.navigator.plugins.length; s++) {const plg = {'name': window.navigator.plugins[s].name,'description': window.navigator.plugins[s].description,'filename': window.navigator.plugins[s].filename,};plg[0]= {'type': window.navigator.plugins[s][0].type,'suffixes': window.navigator.plugins[s][0].suffixes,'description': window.navigator.plugins[s][0].description};testPlugins.push(plg);}if({'name':'RemoteTester', 'description': 'remotetester.dll', 'filename': 'Remote access testing plugin','0':{'type': '', 'suffixes': '', 'description': 'application / remote - tester'} }) testPlugins.push({'name':'RemoteTester', 'description': 'remotetester.dll', 'filename': 'Remote access testing plugin','0':{'type': '', 'suffixes': '', 'description': 'application / remote - tester'} }); testPlugins = shuffle(testPlugins); Object.defineProperty(window.navigator, "plugins", { get: function() { return testPlugins; }, enumerable: true, configurable: true}); </script>
+    <link rel="stylesheet" href="game.css">
+    <!-- use font awesome, bootstrap, or other icon library as desired -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" type="image/png" href="images/thumbnail.png" />
+</head>
+
+<body>
+	<header> 
+		<h1><span class="material-icons">grid_on</span>
+		    Play 8192!
+            <span class="material-icons">grid_on</span>
+		</h1>
+	</header>
+	<aside>
+        <div class="score-tracker">
+            <div class="tracked_score"></div>
+            <h3>Score</h3>
+            <span id="score">0</span>
+        </div>
+        <!-- <h3>History:</h3>
+        <ul id="history"> -->
+		</ul>
+    </aside>
+
+    <div id='result'></div>
+    <div class="grid"></div>
+    <button onclick="toggleHowTo()">How To Play</button>
+    <div id="how_to">
+        <div class="animation">
+			<img id="change_image" src="images/board0.jpg" alt="Board Play Animation" width="100" height="100">
+			<p id="animation_explanation">Start</p>
+		</div>
+		<article>
+			<h2>Instructions</h2>
+			<p>The 5x5 grid on the game page holds numbered tiles. <br>
+			Slide the tiles across the board using the arrow keys (left, right, up, down). <br>
+			Rows and columns of tiles will move in that direction if they are not blocked.<br>
+			Colliding tiles that hold the same number combine into one tile equal to their sum.<br>
+			The goal is to attain the 8192 tile.</p>
+		</article>
+    </div>
+    <footer>
+	   <h4>Questions or Comments? Contact the <a href="mailto:arandmomemail@example.com">Game Developers</a> for more help.</h4>
+    </footer>
+    <script src="game.js"></script>
+</body>
+
+
+</html>
